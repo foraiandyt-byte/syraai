@@ -19,7 +19,6 @@ def ai_code_fix(code_str):
     fixed_code = "# AI fixed code\n" + code_str
     return fixed_code
     uploaded_file = st.file_uploader("Upload Python code", type=["py"])
-
 if uploaded_file:
     # Read file content
     code = uploaded_file.getvalue().decode()
