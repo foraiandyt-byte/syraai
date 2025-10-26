@@ -43,3 +43,9 @@ if user_input := st.chat_input("Type your message..."):
 
 for msg in st.session_state.chat_history:
     st.write(msg)
+
+with st.chat_message("Syrah"):
+    st.markdown(
+        f"<div style='background:#222;color:#fff;padding:10px;border-radius:10px'>"
+        f"{bot_reply}</div>",
+        unsafe_allow_html=True
