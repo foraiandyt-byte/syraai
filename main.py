@@ -6,10 +6,20 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
 st.title("Syrah.ace")
-url = "https://chatgpt.com/backend-api/estuary/content?id=file_00000000b1d461fa84b416f85600914d&ts=489301&p=fs&cid=1&sig=beda5c837fe0acd1b9407346bf90ff37c5108b1b3cb39a463d2f6cf8ab71d3e5&v=0"
 st.subheader("AI coding expert")
 
 user_input = st.text_input("Type your doubt about coding:")
+
+uploaded_file = st.file_uploader("Upload Python code", type=["py"])
+if uploaded_file:
+    code = uploaded_file.getvalue().decode()
+    st.code(code, language="python")
+
+    if st.button("Fix Code"):
+        # send 'code' to your AI fixer
+        fixed_code = ai_fix_code(code)  # <-- your AI function
+        st.code(fixed_code, language="python")
+
 
 if st.button("Send") and user_input:
     # Add user message to chat history
