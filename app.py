@@ -8,6 +8,12 @@ if "chat_history" not in st.session_state:
 st.title("Syrah.ace")
 st.subheader("AI coding expert")
 
+uploaded_file = st.file_uploader(
+    "Upload a code file",
+    type=["py", "js", "html", "css", "cpp", "java", "cs", "php"]
+)
+
+
 user_input = st.text_input("Type your doubt about coding:")
 
 for msg in st.session_state.messages:
@@ -22,10 +28,6 @@ if user_input := st.chat_input("Type your message..."):
         
     bot_reply = f"Echo: {user_input}"
 
-    uploaded_file = st.file_uploader(
-    "Upload a code file",
-    type=["py", "js", "html", "css", "cpp", "java", "cs", "php"]
-)
 
     st.session_state.messages.append({"role": "assistant", "content": bot_reply})
 
