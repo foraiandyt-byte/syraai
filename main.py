@@ -18,6 +18,20 @@ def ai_code_fix(code_str):
     client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
     fixed_code = "# AI fixed code\n" + code_str
     return fixed_code
+    uploaded_file = st.file_uploader("Upload Python code", type=["py"])
+
+if uploaded_file:
+    # Read file content
+    code = uploaded_file.getvalue().decode()
+    
+    st.subheader("Original Code")
+    st.code(code, language="python")
+    
+    # AI processes the uploaded code
+    fixed_code = ai_fix_code(code)
+    
+    st.subheader("AI Fixed Code")
+    st.code(fixed_code, language="python", "java", "C", "C++")
 
     try:
         response = client.models.generate_content(
