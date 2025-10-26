@@ -8,7 +8,7 @@ if "chat_history" not in st.session_state:
 st.title("Syrah.ace")
 st.subheader("AI coding expert")
 
- uploaded_file = st.file_uploader(
+uploaded_file = st.file_uploader(
     "Upload a code file",
     type=["py", "js", "html", "css", "cpp", "java", "cs", "php"]
 )
