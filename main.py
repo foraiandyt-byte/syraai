@@ -7,28 +7,7 @@ if "chat_history" not in st.session_state:
 
 st.title("Syrah.ace")
 st.subheader("AI coding expert")
-for msg in st.session_state.messages:
-    with st.chat_message(msg["role"]):
-        st.write(msg["content"])
 
-# User input box
-if user_input := st.chat_input("Type your message..."):
-    # Save user message
-    st.session_state.messages.append({"role": "user", "content": user_input})
-
-    # Display it
-    with st.chat_message("user"):
-        st.write(user_input)
-
-    # Bot reply logic (dummy)
-    bot_reply = f"Echo: {user_input}"
-
-    # Save bot reply
-    st.session_state.messages.append({"role": "assistant", "content": bot_reply})
-
-    # Display bot reply
-    with st.chat_message("assistant"):
-        st.write(bot_reply)
 user_input = st.text_input("Type your doubt about coding:")
 
 if st.button("Send") and user_input:
