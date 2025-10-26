@@ -31,7 +31,7 @@ if uploaded_file:
     fixed_code = ai_fix_code(code)
     
     st.subheader("AI Fixed Code")
-    st.code(fixed_code, language="python", "java", "C",)
+    st.code(fixed_code,)
 
     try:
         response = client.models.generate_content(
