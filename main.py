@@ -1,7 +1,7 @@
 import streamlit as st
 from google import genai
 
-genai.configure(api_key="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA")
+export GEMINI_API_KEY="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA"
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 st.set_page_config(page_title="Syrah AI", page_icon="")
