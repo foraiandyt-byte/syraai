@@ -7,7 +7,7 @@ if "chat_history" not in st.session_state:
 
 st.title("Syrah.ace")
 st.subheader("AI coding expert")
-or msg in st.session_state.messages:
+for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
 
