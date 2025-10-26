@@ -10,19 +10,23 @@ st.subheader("AI coding expert")
 
 user_input = st.text_input("Type your doubt about coding:")
 
-if st.button("Send") and user_input:
-    # Add user message to chat history
-    st.session_state.chat_history.append(f"You: {user_input}")
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        st.write(msg["content"])
 
-     with st.chat_message("user"):
-        st.markdown(prompt)
+if user_input := st.chat_input("Type your message..."):
+    st.session_state.messages.append({"role": "user", "content": user_input})
+
+    with st.chat_message("user"):
+        st.write(user_input)
+        
+    bot_reply = f"Echo: {user_input}"
+
+    st.session_state.messages.append({"role": "assistant", "content": bot_reply})
 
     with st.chat_message("assistant"):
-        message_placeholder = st.empty()
-        full_response = ""
-        assistant_response = random.choice(
+        st.write(bot_reply)
     
-
     client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  # ⬅️ Replace with your real Gemini API key
     
 
