@@ -10,9 +10,16 @@ st.subheader("AI coding expert")
 
 uploaded_file = st.file_uploader(
     "Upload a code file",
-    type=["py", "js", "html", "css", "cpp", "java", "cs", "php"]
+    type=["py", "js", "html", "css", "cpp", "java", "cs", "php", "txt"]
 )
+if uploaded_file:
+    code = uploaded_file.getvalue().decode()
+    st.code(code, language="python")
 
+    if st.button("Fix Code"):
+        # send 'code' to your AI fixer
+        fixed_code = ai_fix_code(code)  # <-- your AI function
+        st.code(fixed_code, language="python")
 
 user_input = st.text_input("Type your doubt about coding:")
 
