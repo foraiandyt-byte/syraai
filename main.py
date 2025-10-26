@@ -20,8 +20,11 @@ if user_message:
     st.session_state.messages.append({"role": "user", "content": user_message})
     st.chat_message("user").write(user_message)
 
-    response = model.generate_content(user_message)
-    bot_reply = response.text
+     response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=user_input
+        )
+        bot_reply = response.text
 
 
     st.session_state.messages.append({"role": "assistant", "content": bot_reply})
