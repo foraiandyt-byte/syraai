@@ -1,31 +1,33 @@
 import streamlit as st
-import google.genai as genai
+from google import genai
 
-client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
+# Initialize chat history
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
 
-st.set_page_config(page_title="Syrah AI", page_icon="")
-st.title("🤖 Syrah.ace")
-st.write("AI coding expert (ace)!")
+st.title("Syrah.ace")
+st.subheader("AI coding expert")
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+user_input = st.text_input("Type your doubt about coding:")
 
-for msg in st.session_state.messages:
-    st.chat_message(msg["role"]).write(msg["content"])
+if st.button("Send") and user_input:
+    # Add user message to chat history
+    st.session_state.chat_history.append(f"You: {user_input}")
+    
 
-user_message = st.chat_input("Ask anything about coding...")
+    client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  # ⬅️ Replace with your real Gemini API key
+    
 
-if user_message:
-    # Show user message
-    st.session_state.messages.append({"role": "user", "content": user_message})
-    st.chat_message("user").write(user_message)
-
-     response = client.models.generate_content(
+    try:
+        response = client.models.generate_content(
             model="gemini-2.5-flash",
             contents=user_input
         )
         bot_reply = response.text
+    except Exception as e:
+        bot_reply = f"Error: {e}"
+ 
+    st.session_state.chat_history.append(f"Bot: {bot_reply}")
 
-
-    st.session_state.messages.append({"role": "assistant", "content": bot_reply})
-    st.chat_message("assistant").write(bot_reply)
+for msg in st.session_state.chat_history:
+    st.write(msg)
