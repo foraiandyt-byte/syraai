@@ -22,6 +22,11 @@ if user_input := st.chat_input("Type your message..."):
         
     bot_reply = f"Echo: {user_input}"
 
+    uploaded_file = st.file_uploader(
+    "Upload a code file",
+    type=["py", "js", "html", "css", "cpp", "java", "cs", "php"]
+)
+
     st.session_state.messages.append({"role": "assistant", "content": bot_reply})
 
     with st.chat_message("Syrah"):
