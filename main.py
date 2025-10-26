@@ -10,24 +10,14 @@ st.subheader("AI coding expert")
 
 user_input = st.text_input("Type your doubt about coding:")
 
-uploaded_file = st.file_uploader("Upload Python code", type=["py"])
-if uploaded_file:
-    code = uploaded_file.getvalue().decode()
-    st.code(code, language="python")
-
-    if st.button("Fix Code"):
-        # send 'code' to your AI fixer
-        fixed_code = ai_fix_code(code)  # <-- your AI function
-        st.code(fixed_code, language="python")
-
-
 if st.button("Send") and user_input:
     # Add user message to chat history
     st.session_state.chat_history.append(f"You: {user_input}")
     
-
-    client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  # ⬅️ Replace with your real Gemini API key
-    
+def ai_code_fix(code_str):
+    client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
+    fixed_code = "# AI fixed code\n" + code_str
+    return fixed_code
 
     try:
         response = client.models.generate_content(
