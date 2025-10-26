@@ -13,6 +13,14 @@ user_input = st.text_input("Type your doubt about coding:")
 if st.button("Send") and user_input:
     # Add user message to chat history
     st.session_state.chat_history.append(f"You: {user_input}")
+
+     with st.chat_message("user"):
+        st.markdown(prompt)
+
+    with st.chat_message("assistant"):
+        message_placeholder = st.empty()
+        full_response = ""
+        assistant_response = random.choice(
     
 
     client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  # ⬅️ Replace with your real Gemini API key
