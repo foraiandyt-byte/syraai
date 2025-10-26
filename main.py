@@ -1,8 +1,25 @@
 import streamlit as st
-from google import genai
+import google.genai as genai
 
-export GEMINI_API_KEY="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA"
-model = genai.GenerativeModel("gemini-2.5-flash")
+client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
+while True:
+    user_input = input("You: ")
+
+    if user_input.lower() in ["exit", "quit"]:
+        print("Chatbot: Goodbye! 👋")
+        break
+
+    try:
+        # Generate response using Gemini model
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",   # You can change to "gemini-1.5-pro" for deeper answers
+            contents=user_input
+        )
+
+        print("Chatbot:", response.output_text)
+
+    except Exception as e:
+        print(f"⚠️ Error: {e}")
 
 st.set_page_config(page_title="Syrah AI", page_icon="")
 st.title("🤖 Syrah.ace")
