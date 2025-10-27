@@ -13,11 +13,10 @@ prompt = st.chat_input(
  accept_file=True, 
  file_type=[".txt", ".py", ".html"]
 )
-if prompt and prompt.text:
-    st.markdown(prompt.text)
-if prompt and prompt["files"]: 
-    st.image(prompt["files"][0])
-
+if prompt and prompt["files"]:
+    # Open the uploaded file with PIL first
+    image = Image.open(prompt["files"][0])
+    st.image(image)
 
 if st.button("Send") and user_input:
     
