@@ -10,7 +10,7 @@ st.subheader("AI coding expert")
 
 user_input = st.text_input("Type your doubt about coding:")
 prompt = st.chat_input(
- accept_file= True 
+ accept_file=True, 
  file_type=[".txt", ".py", ".html"]
 )
 if prompt and prompt.text:
