@@ -17,6 +17,7 @@ if user_input and user_input["files"]:
 try:
     from google import genai
     client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
+    model="gemini-2.5-flash"
     response=client.model.generate_content(
       model="gemini-2.5-flash",
       contents=user_input
