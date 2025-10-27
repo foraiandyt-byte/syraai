@@ -9,8 +9,6 @@ st.title("Syrah.ace")
 st.subheader("AI coding expert")
 prompt = st.chat_input(
     "Say something and/or attach an image",
-    accept_file=True,
-    file_type=["jpg", "jpeg", "png"],
 )
 st.session_state.chat_history.append(f"You: {prompt}")
     
