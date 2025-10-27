@@ -22,7 +22,7 @@ try:
       model="gemini-2.5-flash",
       contents=user_input
         )
-     bot_reply = response.text
+    bot_reply = response.text
 except:
     (f"Bot: {bot_reply}")
     print(bot_reply)
