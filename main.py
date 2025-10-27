@@ -1,4 +1,4 @@
-xcimport streamlit as st
+import streamlit as st
 from google import genai
 
 # Initialize chat history
