@@ -13,6 +13,8 @@ prompt = st.chat_input(
  accept_file=True, 
  file_type=[".txt", ".py", ".html"]
 )
+ploaded_file = st.file_uploader("file type", type=[".txt", ".py", ".html"])
+
 if prompt and prompt["files"]:
     image = Image.open(uploaded_file)
     st.image(image)
