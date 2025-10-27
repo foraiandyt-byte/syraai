@@ -9,9 +9,15 @@ st.title("Syrah.ace")
 st.subheader("AI coding expert")
 
 user_input = st.text_input("Type your doubt about coding:")
+accept_file=True 
+file_type=[".txt", ".py", ".html"]
+if prompt and prompt.text:
+    st.markdown(prompt.text)
+if prompt and prompt["files"]:
+    st.image(prompt["files"][0])
 
 if st.button("Send") and user_input:
-    # Add user message to chat history
+    
     st.session_state.chat_history.append(f"You: {user_input}")
     
     client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
@@ -24,7 +30,7 @@ if st.button("Send") and user_input:
     except Exception as e:
         bot_reply = f"Error: {e}"
  
-    st.session_state.chat_history.append(f"Bot: {bot_reply}")
+    st.session_state.chat_history.append(f"Syrah: {bot_reply}")
 
 for msg in st.session_state.chat_history:
     st.write(msg)
