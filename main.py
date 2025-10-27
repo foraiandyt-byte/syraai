@@ -11,7 +11,7 @@ st.subheader("AI coding expert")
 user_input = st.text_input("Type your doubt about coding:")
 if st.button("Send") and user_input:
 
-prompt = st.chat_input
+ prompt = st.chat_input
 if prompt and prompt.text:
     st.markdown(prompt.text)
     
