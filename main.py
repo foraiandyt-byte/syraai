@@ -12,8 +12,6 @@ prompt = st.chat_input(
     accept_file=True,
     file_type=["jpg", "jpeg", "png"],
 )
-if prompt and prompt.text:
-    st.markdown(prompt.text)
 st.session_state.chat_history.append(f"You: {prompt}")
     
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
