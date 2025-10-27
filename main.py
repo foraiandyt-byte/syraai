@@ -8,10 +8,10 @@ user_input = st.chat_input(
     accept_file=True,
     file_type=["jpg", "jpeg", "png"],
 )
-if prompt and prompt.text:
-    st.markdown(prompt.text)
-if prompt and prompt["files"]:
-    st.image(prompt["files"][0])
+if user_input and user_input.text:
+    st.markdown(user_input.text)
+if user_input and user_input["files"]:
+    st.image(user_input["files"][0])
 (f"You: {user_input}")
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  # ⬅️ Replace with your real Gemini API key   
 response = client.models.generate_content(
