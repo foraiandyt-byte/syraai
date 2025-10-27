@@ -3,7 +3,7 @@ from google import genai
 
 # Initialize chat history
 if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
+    st.session_state.chat_history=[]
 
 st.title("Neuro")
 st.subheader("Made by Team Syrah (VBB 2025)! ace stands for AI coding Tutor")
