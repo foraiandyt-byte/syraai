@@ -16,11 +16,8 @@ if user_input and user_input["files"]:
     client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
     from google import genai
     client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
-    model="gemini-2.5-flash"
-    response=model.generate_content(
-      model="gemini-2.5-flash",
-      contents=user_input
-        )
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(user_input)
     bot_reply = response.text
     (f"Bot: {bot_reply}")
     print(bot_reply)
