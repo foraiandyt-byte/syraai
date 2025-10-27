@@ -7,10 +7,10 @@ if "chat_history" not in st.session_state:
 
 st.title("Syrah.ace")
 st.subheader("AI coding expert")
-prompt = st.chat_input(
+user_input = st.chat_input(
     "Say something and/or attach an image",
 )
-st.session_state.chat_history.append(f"You: {prompt}")
+st.session_state.chat_history.append(f"You: {user_input}")
     
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
 try:
