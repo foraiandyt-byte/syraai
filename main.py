@@ -15,14 +15,11 @@ st.session_state.chat_history.append(f"You: {user_input}")
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
 try:
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-2.5-flash",  
             contents=user_input
         )
-        bot_reply = response.text
-except Exception as e:
-        bot_reply = f"Error: {e}"
-        st.session_state.chat_history.append(f"Bot: {bot_reply}")
 
+        print("Chatbot:", response.output_text)
 
-for msg in st.session_state.chat_history:
-    st.write(msg)
+    except Exception as e:
+        print(f"⚠️ Error: {e}")
