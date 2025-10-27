@@ -15,9 +15,9 @@ if user_input and user_input["files"]:
     (f"You: {user_input}")
     client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
 try:
-response = client.models.generate_content(
-    model="gemini-2.5-flash",
-    contents=user_input
+    response=client.model.generate_content(
+      model="gemini-2.5-flash",
+      contents=user_input
         )
 bot_reply = response.text
 (f"Bot: {bot_reply}")
