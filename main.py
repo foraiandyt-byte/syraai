@@ -14,8 +14,7 @@ prompt = st.chat_input(
  file_type=[".txt", ".py", ".html"]
 )
 if prompt and prompt["files"]:
-    # Open the uploaded file with PIL first
-    image = Image.open(prompt["files"][0])
+    image = st.Image.open(prompt["files"][0])
     st.image(image)
 
 if st.button("Send") and user_input:
