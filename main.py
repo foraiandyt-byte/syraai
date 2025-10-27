@@ -8,7 +8,7 @@ user_input = st.chat_input
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
 from google import genai
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
-response = client.generate_content(
+response = client.models.generate_content(
   model="gemini-2.5-flash",
   content=user_input
   )
