@@ -21,7 +21,7 @@ try:
             contents=user_input
         )
         bot_reply = response.text
-finally st.session_state.chat_history.append(f"Syrah: {bot_reply}")
+finally: st.session_state.chat_history.append(f"Syrah: {bot_reply}")
 
 for msg in st.session_state.chat_history:
     st.write(msg)
