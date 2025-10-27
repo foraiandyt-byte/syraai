@@ -9,16 +9,6 @@ st.title("Syrah.ace")
 st.subheader("AI coding expert")
 
 user_input = st.text_input("Type your doubt about coding:")
-prompt = st.chat_input(
- accept_file=True, 
- file_type=[".txt", ".py", ".html"]
-)
-uploaded_file = st.file_uploader("file type", type=[".txt", ".py", ".html"])
-
-if prompt and prompt["files"]:
-    image = Image.open(uploaded_file)
-    st.image(image)
-
 if st.button("Send") and user_input:
     
     st.session_state.chat_history.append(f"You: {user_input}")
