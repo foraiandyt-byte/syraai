@@ -14,6 +14,7 @@ if user_input and user_input["files"]:
     st.image(user_input["files"][0])
 (f"You: {user_input}")
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
+
 response = client.models.generate_content(
     model="gemini-2.5-flash",
     contents=user_input
