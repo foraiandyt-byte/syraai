@@ -1,17 +1,36 @@
 import streamlit as st
 from google import genai
 
-st.title("Syrah")
-st.subheader("Made by Team Syrah (VBB 2025)! ace stands for AI coding Tutor")
-user_input = st.chat_input
-(f"You: {user_input}")
-client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
-from google import genai
-client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw") 
-response = client.models.generate_content(
-  model="gemini-2.5-flash",
-  content=user_input
-  )
-bot_reply = response.text
-(f"Bot: {bot_reply}")
-print(bot_reply)
+# Initialize chat history
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+st.title("Neuro")
+st.subheader("Made by Harris")
+# Input box
+user_input = st.chat_input("Type your message:")
+
+# Send button
+if st.button("Send") and user_input:
+    # Add user message to chat history
+    st.session_state.chat_history.append(f"You: {user_input}")
+    
+    # Create Gen AI client
+    client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  # ⬅️ Replace with your real Gemini API key
+    
+    # Call Gemini API
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=user_input
+        )
+        bot_reply = response.text
+    except Exception as e:
+        bot_reply = f"Error: {e}"
+
+    # Add bot response to chat history
+    st.session_state.chat_history.append(f"Bot: {bot_reply}")
+
+# Display chat history
+for msg in st.session_state.chat_history:
+    st.write(msg)
