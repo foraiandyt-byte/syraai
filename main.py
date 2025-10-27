@@ -7,7 +7,16 @@ if "chat_history" not in st.session_state:
 
 st.title("Syrah.ace")
 st.subheader("AI coding expert")
-user_input = st.text_input("Type your doubt about coding:")
+prompt = st.chat_input(
+    "Say something and/or attach an image",
+    accept_file=True,
+    file_type=["jpg", "jpeg", "png"],
+)
+if prompt and prompt.text:
+    st.markdown(prompt.text)
+if prompt and prompt["files"]:
+    st.image(prompt["files"][0])
+user_input = st.chat_input("Type your doubt about coding:")
 if st.button("Send") and user_input:
         st.session_state.chat_history.append(f"You: {user_input}")
     
