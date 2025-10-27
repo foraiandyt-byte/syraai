@@ -16,9 +16,7 @@ if prompt and prompt.text:
     st.markdown(prompt.text)
 if prompt and prompt["files"]:
     st.image(prompt["files"][0])
-user_input = st.chat_input("Type your doubt about coding:")
-if st.button("Send") and user_input:
-        st.session_state.chat_history.append(f"You: {user_input}")
+st.session_state.chat_history.append(f"You: {user_input}")
     
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
 try:
