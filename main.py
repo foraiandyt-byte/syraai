@@ -15,5 +15,5 @@ try:
         bot_reply = response.text
 except Exception as e:
         bot_reply = f"Error: {e}"
-       (f"Bot: {bot_reply}")
+        (f"Bot: {bot_reply}")
 print(bot_reply)
