@@ -7,9 +7,6 @@ if "chat_history" not in st.session_state:
 
 st.title("Syrah.ace")
 st.subheader("AI coding expert")
-prompt = st.chat_input
-if prompt and prompt.text:
-    st.markdown(prompt.text)
 user_input = st.text_input("Type your doubt about coding:")
 if st.button("Send") and user_input:
         st.session_state.chat_history.append(f"You: {user_input}")
