@@ -5,7 +5,7 @@ st.title("Syrah.Ace")
 st.subheader("Made by Team Syrah (VBB 2025)! Ace stands for AI Coding Expert")
 user_input = st.chat_input("Type your message:")
 
-st.session_state.(f"You: {user_input}")   
+st.session_state=(f"You: {user_input}")   
 client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
 
 try:
