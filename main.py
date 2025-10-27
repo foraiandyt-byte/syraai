@@ -23,10 +23,7 @@ try:
       contents=user_input
         )
 except:
-    response=client.generate_content(
-      model="gemini-2.5-flash",
-      contents=user_input
-        )
+
     bot_reply = response.text
     (f"Bot: {bot_reply}")
     print(bot_reply)
