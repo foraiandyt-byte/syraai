@@ -1,6 +1,6 @@
 import streamlit as st
 from google import genai
-
+from PIL import Image
 # Initialize chat history
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
@@ -14,7 +14,7 @@ prompt = st.chat_input(
  file_type=[".txt", ".py", ".html"]
 )
 if prompt and prompt["files"]:
-    image = st.image.open(prompt["files"][0])
+    image = Image.open(prompt["files"][0])
     st.image(image)
 
 if st.button("Send") and user_input:
