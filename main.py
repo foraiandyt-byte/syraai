@@ -22,7 +22,7 @@ client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")
 try:
         response = client.models.generate_content(
             model="gemini-2.5-flash",
-            contents=user_input
+            contents=st.chat_input
         )
         bot_reply = response.text
 except Exception as e:
