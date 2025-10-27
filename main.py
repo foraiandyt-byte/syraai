@@ -28,6 +28,7 @@ if st.button("Send") and user_input:
             contents=user_input
         )
         bot_reply = response.text
+        bot_reply = response.image
     except Exception as e:
         bot_reply = f"Error: {e}"
  
