@@ -18,5 +18,5 @@ except Exception as e:
         bot_reply = f"Error: {e}"
         st.session_state=(f"Bot: {bot_reply}")
 
-for msg in st.session_state.chat_history:
+for msg in st.session_state:
     st.write(msg)
