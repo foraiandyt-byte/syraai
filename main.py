@@ -16,7 +16,7 @@ client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")
 try:
         response = client.models.generate_content(
             model="gemini-2.5-flash",
-            contents=response.user_input
+            contents=user_input
         )
         bot_reply = response.text
 except Exception as e:
