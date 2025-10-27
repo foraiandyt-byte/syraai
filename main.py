@@ -18,7 +18,7 @@ try:
             contents=user_input
         )
         bot_reply = response.text
-    except Exception as e:
+except Exception as e:
         bot_reply = f"Error: {e}"
 
     st.session_state.chat_history.append(f"Bot: {bot_reply}")
