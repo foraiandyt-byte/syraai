@@ -20,6 +20,5 @@ try:
         )
 
         print("Chatbot:", response.output_text)
-
-    except Exception as e:
+except Exception as e:
         print(f"⚠️ Error: {e}")
