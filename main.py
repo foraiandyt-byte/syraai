@@ -23,7 +23,6 @@ try:
       contents=user_input
         )
 except:
-
     bot_reply = response.text
     (f"Bot: {bot_reply}")
     print(bot_reply)
