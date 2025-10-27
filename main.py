@@ -14,7 +14,7 @@ user_input = st.text_input("Type your doubt about coding:")
 if st.button("Send") and user_input:
         st.session_state.chat_history.append(f"You: {user_input}")
     
-    client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
+client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  
     try:
         response = client.models.generate_content(
             model="gemini-2.5-flash",
