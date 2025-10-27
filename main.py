@@ -1,4 +1,4 @@
-import streamlit as st
+xcimport streamlit as st
 from google import genai
 
 # Initialize chat history
@@ -8,7 +8,7 @@ if "chat_history" not in st.session_state:
 st.title("Neuro")
 st.subheader("Made by Harris")
 # Input box
-user_input = st.chat_input("Type your message:")
+user_input = st.text_input("Type your message:")
 
 # Send button
 if st.button("Send") and user_input:
