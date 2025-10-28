@@ -1,6 +1,7 @@
 import streamlit as st
+import os
 from google import genai
-export GEMINI_API_KEY="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA"
+genai.configure(api_key=os.environ["AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA"])
 st.title=("Syrah")
 st.subheader=("Made by Team 21 VBB 2025")
 model=genai.GenerativeModel("gemini-2.5-flash")
