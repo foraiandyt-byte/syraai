@@ -20,16 +20,17 @@ except Exception as e:
 # --- Streamlit App UI ---
 
 st.set_page_config(
-    page_title="Syrah",
-    page_icon="💻",
+    page_title="Maverick.ace",
+    page_icon="🇮🇳",
     layout="centered"
 )
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-st.title("Syrah")
-st.caption("Powered by team Syrah")
+st.title("Maverick.ace")
+st.subheader("ace stands for AI coding expert")
+st.caption("Powered by team Maverick VBB 25")
 
 for message in st.session_state.chat_history:
     with st.chat_message(message["role"]):
