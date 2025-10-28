@@ -21,7 +21,7 @@ except Exception as e:
 
 st.set_page_config(
     page_title="Syrah",
-    page_icon="✨",
+    page_icon="💻",
     layout="centered"
 )
 
@@ -35,7 +35,7 @@ for message in st.session_state.chat_history:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
       
-prompt = st.chat_input("What would you like to ask?")
+prompt = st.chat_input("What would you like to ask about coding?")
 
 if prompt:
     st.session_state.chat_history.append({"role": "user", "content": prompt})
