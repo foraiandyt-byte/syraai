@@ -1,5 +1,5 @@
 import streamlit as st
-from google import genai
+from google-genai import genai
 st.title=("Syrah")
 st.subheader=("Made by Team 21 VBB 2025")
 genai.configure(api_key="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA")
