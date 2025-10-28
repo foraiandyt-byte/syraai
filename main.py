@@ -1,34 +1,31 @@
 import streamlit as st
 from google import genai
+st.title=("Syrah")
+st.subheader=("Made by Team 21 VBB 2025")
+genai.configure(api_key="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA")
+st.chat_input=("Ask a doubt on coding",
+     accept_file=True
+)
+model=genai.GenerativeModel("gemini-2.5-flash")
+prompt = st.chat_input("What would you like to ask?")
 
-#
-
-st.title("Neuro")
-st.subheader("Made by Harris")
-# Input box
-user_input = st.text_input("Type your message:")
-
-# Send button
-if st.button("Send") and user_input:
-    # Add user message to chat history
-    st.session_state.chat_history.append(f"You: {user_input}")
-    
-    # Create Gen AI client
-    client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  # ⬅️ Replace with your real Gemini API key
-    
-    # Call Gemini API
+if prompt:
+    st.session_state.chat_history.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
     try:
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=user_input
-        )
-        bot_reply = response.text
+        with st.chat_message("assistant"):
+            with st.spinner("Thinking..."):
+                response = model.generate_content(prompt)
+                
+                if response and response.text:
+                    ai_response = response.text
+                    st.markdown(ai_response)
+                    st.session_state.chat_history.append({"role": "assistant", "content": ai_response})
+                else:
+                    st.error("The model did not return a valid response.")
+    
     except Exception as e:
-        bot_reply = f"Error: {e}"
+        st.error(f"An error occurred while generating the response: {e}")
 
-    # Add bot response to chat history
-    st.session_state.chat_history.append(f"Bot: {bot_reply}")
-
-# Display chat history
-for msg in st.session_state.chat_history:
-    st.write(msg)
+                            
