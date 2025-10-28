@@ -1,5 +1,5 @@
 import streamlit as st
-import google.genai as genai
+import google as genai
 import os
 
 API_KEY = "AIzaSyAfyW-ltqGzcQs803E1INhuLMPihlmEW-k" 
