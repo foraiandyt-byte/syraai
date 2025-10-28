@@ -6,7 +6,7 @@ API_KEY = "AIzaSyAfyW-ltqGzcQs803E1INhuLMPihlmEW-k"
 
 # Configure the generative AI library
 try:
-    genai.configure(api_key=AIzaSyAfyW-ltqGzcQs803E1INhuLMPihlmEW-k)
+    genai.configure(api_key="AIzaSyAfyW-ltqGzcQs803E1INhuLMPihlmEW-k")
 except Exception as e:
     st.error(f"Error configuring the Gemini API: {e}")
     st.stop()
