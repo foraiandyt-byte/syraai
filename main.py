@@ -1,29 +1,3 @@
 import streamlit as st
-import os
-from google import genai
-genai.configure(api_key=os.environ["AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA"])
-st.title=("Syrah")
-st.subheader=("Made by Team 21 VBB 2025")
-model=genai.GenerativeModel("gemini-2.5-flash")
-prompt = st.chat_input("What would you like to ask?")
-
-if prompt:
-    st.session_state.chat_history.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
-    try:
-        with st.chat_message("assistant"):
-            with st.spinner("Thinking..."):
-                response = model.generate_content(prompt)
-                
-                if response and response.text:
-                    ai_response = response.text
-                    st.markdown(ai_response)
-                    st.session_state.chat_history.append({"role": "assistant", "content": ai_response})
-                else:
-                    st.error("The model did not return a valid response.")
-    
-    except Exception as e:
-        st.error(f"An error occurred while generating the response: {e}")
-
+import google.genai as genai
                             
