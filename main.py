@@ -1,8 +1,8 @@
 import streamlit as st
-from google.genai import genai
+from google import genai
 st.title=("Syrah")
 st.subheader=("Made by Team 21 VBB 2025")
-genai.configure(api_key="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA")
+client=genai.configure(api_key="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA")
 model=genai.GenerativeModel("gemini-2.5-flash")
 prompt = st.chat_input("What would you like to ask?")
 
