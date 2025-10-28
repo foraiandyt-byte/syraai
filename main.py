@@ -3,9 +3,6 @@ from google import genai
 st.title=("Syrah")
 st.subheader=("Made by Team 21 VBB 2025")
 genai.configure(api_key="AIzaSyArI5AG69nKu8eIhUiPWsCORf-JKJcLyXA")
-st.chat_input=("Ask a doubt on coding",
-     accept_file=True
-)
 model=genai.GenerativeModel("gemini-2.5-flash")
 prompt = st.chat_input("What would you like to ask?")
 
