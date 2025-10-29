@@ -4,7 +4,6 @@ import os
 
 API_KEY = "AIzaSyCPSoTZUvlXRkKq0kK1snpO6Mpl-hKqcmo" 
 
-# Configure the generative AI library
 try:
     genai.configure(api_key="AIzaSyCPSoTZUvlXRkKq0kK1snpO6Mpl-hKqcmo")
 except Exception as e:
@@ -16,8 +15,6 @@ try:
 except Exception as e:
     st.error(f"Error initializing the generative model: {e}")
     st.stop()
-
-# --- Streamlit App UI ---
 
 st.set_page_config(
     page_title="Maverick.ace",
