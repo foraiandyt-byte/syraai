@@ -2,10 +2,9 @@ import streamlit as st
 import google.generativeai as genai
 import os
 
-API_KEY = "AIzaSyCPSoTZUvlXRkKq0kK1snpO6Mpl-hKqcmo" 
 
 try:
-    genai.configure(api_key="AIzaSyCPSoTZUvlXRkKq0kK1snpO6Mpl-hKqcmo")
+    genai.configure(api_key="AIzaSyD9okhLFcZgtABpzHfERRMI9Lk2gi50aSg")
 except Exception as e:
     st.error(f"Error configuring the Gemini API: {e}")
     st.stop()
