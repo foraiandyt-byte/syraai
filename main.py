@@ -3,7 +3,7 @@ import google.generativeai as genai
 import os
 
 try:
-    genai.configure(api_key=os.environ["API"])
+    genai.configure(api_key=os.environ["apikey"])
 except Exception as e:
     st.error(f"Error configuring the Gemini API: {e}")
     st.stop()
