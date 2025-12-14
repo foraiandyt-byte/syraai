@@ -4,7 +4,7 @@ import os
 
 
 try:
-    genai.configure(api_key="AIzaSyA7lIXVaZVHd0JArjGGnLqNKCdCjqFiqwM")
+    genai.configure(api_key="api_key1")
 except Exception as e:
     st.error(f"Error configuring the Gemini API: {e}")
     st.stop()
