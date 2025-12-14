@@ -1,6 +1,10 @@
 import streamlit as st
 import google.generativeai as genai
 import os
+import os
+
+GEMINI_API_KEY = os.environ["API_KEY1"]
+
 try:
     genai.configure(api_key="API_KEY1")
 except Exception as e:
