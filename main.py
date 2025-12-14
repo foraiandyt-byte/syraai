@@ -1,9 +1,11 @@
 import streamlit as st
 import google.generativeai as genai
 import os
-import dotenv
+import requests
 
-GEMINI_API_KEY = os.environ["apikey"]
+headers = (
+    "authorization": st.secrets["apikey"]
+    "content-type": "aplication/json"
 
 
 try:
