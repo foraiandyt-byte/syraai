@@ -4,8 +4,8 @@ import os
 import requests
 
 headers = {
-    "authorization": st.secrets["apikey"]
-    "content-type": "aplication/json"
+    "authorization":st.secrets["apikey"]
+    "content-type":"aplication/json"
 }
 
 try:
