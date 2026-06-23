@@ -31,7 +31,7 @@ if "chat_history" not in st.session_state:
 
 st.title("Maverick.ace")
 st.subheader("ace stands for AI coding expert")
-st.caption("Powered by team Maverick VBB 25")
+st.caption("Powered by team 2 of class 10 C")
 
 for message in st.session_state.chat_history:
     with st.chat_message(message["role"]):
