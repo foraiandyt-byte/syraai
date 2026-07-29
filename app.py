@@ -34,7 +34,7 @@ if user_input := st.chat_input("Type your message..."):
     with st.chat_message("Syrah"):
         st.write(bot_reply)
     
-    client = genai.Client(api_key="AIzaSyALEjQpQpIEtZcEHCYrGOizaVITtD0Atxw")  # ⬅️ Replace with your real Gemini API key
+    client = genai.Client(api_key=".env")  # ⬅️ Replace with your real Gemini API key
     
 
     try:
